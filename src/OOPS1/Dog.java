@@ -21,5 +21,7 @@ public class Dog {
 	public static void main(String arg[]) {
 		Dog tuffy = new Dog("Tuffy","popillon",2,"white");
 		tuffy.printMyData();
+		Dog laila = new Dog("Laila","Golden Retriever",1,"white");
+		laila.printMyData();
 	}
 }
