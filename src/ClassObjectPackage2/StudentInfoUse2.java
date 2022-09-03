@@ -1,6 +1,6 @@
-package ClassObjectPachage2;
+package ClassObjectPackage2;
 
-import ClassObjectPachage1.StudentInfo;
+import ClassObjectPackage1.StudentInfo;
 
 public class StudentInfoUse2 {
 
@@ -12,6 +12,10 @@ public class StudentInfoUse2 {
 		// so not accessible outside the package
 		// s1.name = "Shilpa";
 		// System.out.println(s1.name);
+		
+		// standard is public variable, we can access outside class
+		s1.standard = 4;
+		System.out.println(s1.standard);
 	}
 
 }
