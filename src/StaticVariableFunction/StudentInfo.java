@@ -14,7 +14,7 @@ public class StudentInfo {
 		/* As Static variable if default variable, anyone can change the value of 
 		 * numStudent outside the Class
 		 */
-		s2.numStudent = 100;
+//		s2.numStudent = 100;
 		
 		
 		// Static variables are property of class not object
@@ -37,7 +37,7 @@ public class StudentInfo {
 		S2.getStudentDetails();
 		
 		System.out.println(Student2.getNumStudent());
-		System.out.println(S1.getNumStudent());		
+//		System.out.println(S1.getNumStudent());		
 		/* These statements will give an error as numStudent is private static variable
 		 * and cannot be access outside the class
 		 */
