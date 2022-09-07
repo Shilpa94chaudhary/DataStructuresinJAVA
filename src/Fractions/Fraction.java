@@ -33,8 +33,17 @@ public class Fraction {
 	}
 
 	public void addFraction(Fraction f) {
+		// First Fraction is the Fraction on which function is call
+		// Second Fraction is passed
 		this.numerator = (this.numerator * f.denominator) + (f.numerator * this.denominator);
 		this.denominator = (this.denominator * f.denominator);
 		simplify();
 	}	
+	
+	public static Fraction addFraction(Fraction f1, Fraction f2) {
+		int newNum = (f1.numerator * f2.denominator) + (f1.numerator * f2.denominator);
+		int newDeno = f1.denominator * f2.denominator;
+		Fraction f = new Fraction(newNum, newDeno);
+		return f;
+	}
 }
