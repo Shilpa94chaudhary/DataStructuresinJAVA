@@ -6,7 +6,7 @@ public class DynamicArrayUse {
 		
 		DynamicArray d = new DynamicArray();
 		
-		for(int i = 1; i < 11 ; i++) {
+		for(int i = 1; i < 8 ; i++) {
 			d.add(100+i);
 			System.out.println(d.getElementAt(i-1));
 			System.out.println(d.size());
@@ -17,9 +17,21 @@ public class DynamicArrayUse {
 //		System.out.println(d.getElementAt(3));
 //		d.setElementAt(2,150);
 //		System.out.println(d.getElementAt(2));
+
+		System.out.println("Array");
+		d.printDynamicArray();
 		
 		d.insertElementAt(2,10);
+
+		System.out.println("\nArray after insertion");
+		d.printDynamicArray();
+		
 		d.removeElementFrom(3);
+
+		System.out.println("\nArray after deletion");
+		d.printDynamicArray();
+		
+		System.out.println();
 		
 		while(! d.isEmpty()) {
 			System.out.println(d.removeLast());

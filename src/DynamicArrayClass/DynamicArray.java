@@ -55,6 +55,7 @@ public class DynamicArray {
 			return -1;
 		}
 		int temp = data[nextElementIndex-1];
+		data[nextElementIndex-1] = 0;
 		nextElementIndex --;
 		return temp;
 	}
@@ -67,13 +68,23 @@ public class DynamicArray {
 	}
 
 	
-	public void insertElementAt(int i, int j) {
+	public void insertElementAt(int index, int num) {
 		
+		if(nextElementIndex == data.length) {
+			doubleCapacity();
+		}
+		nextElementIndex++;
+		for(int i = nextElementIndex ; i > index ; i--) {
+			data[i]=data[i-1];
+		}
+		data[index] = num;
 	}
 
-	public void removeElementFrom(int i) {
-		
-		
+	public void removeElementFrom(int index) {
+		for(int i = index ; i < nextElementIndex ; i++) {
+			data[i]=data[i+1];
+		}
+		nextElementIndex--;
 	}
 
 }
