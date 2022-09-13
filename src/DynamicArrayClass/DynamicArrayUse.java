@@ -18,6 +18,9 @@ public class DynamicArrayUse {
 //		d.setElementAt(2,150);
 //		System.out.println(d.getElementAt(2));
 		
+		d.insertElementAt(2,10);
+		d.removeElementFrom(3);
+		
 		while(! d.isEmpty()) {
 			System.out.println(d.removeLast());
 			System.out.println("Size: " + d.size());

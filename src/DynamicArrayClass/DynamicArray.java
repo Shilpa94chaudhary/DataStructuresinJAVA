@@ -66,4 +66,14 @@ public class DynamicArray {
 		
 	}
 
+	
+	public void insertElementAt(int i, int j) {
+		
+	}
+
+	public void removeElementFrom(int i) {
+		
+		
+	}
+
 }
