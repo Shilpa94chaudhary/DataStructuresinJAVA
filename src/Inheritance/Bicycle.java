@@ -5,6 +5,6 @@ public class Bicycle extends Vehicle {
 	
 	public void printBicycle() {
 		System.out.println("Bicycle:\nBrand: " + this.brandName + " Color: " 
-				+ this.color + " Price: "+ this.price +" CC: " + this.cc);
+				+ this.color + " Price: "+ getPrice() +" CC: " + this.cc);
 	}
 }

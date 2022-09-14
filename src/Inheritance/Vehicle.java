@@ -3,7 +3,15 @@ package Inheritance;
 public class Vehicle {
 	String color;
 	String brandName;
-	int price;
+	private int price;
+	
+	public void setPrice(int price) {
+		this.price = price;
+	}
+	
+	public int getPrice() {
+		return price;
+	}
 	
 	public void print() {
 		System.out.println("Vehicle:\nBrand: " + this.brandName + " Color: " 

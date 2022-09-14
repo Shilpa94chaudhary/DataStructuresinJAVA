@@ -5,6 +5,6 @@ public class Car extends Vehicle {
 	
 	public void printCar() {
 		System.out.println("Car:\nBrand: " + this.brandName + " Color: " 
-				+ this.color + " Price: "+ this.price +" No of seats: " + this.numSeats);
+				+ this.color + " Price: "+ getPrice() +" No of seats: " + this.numSeats);
 	}
 }
