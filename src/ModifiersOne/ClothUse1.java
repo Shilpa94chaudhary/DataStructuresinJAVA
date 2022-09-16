@@ -3,7 +3,12 @@ package ModifiersOne;
 public class ClothUse1 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		Pants p = new Pants();
+		p.gender = "Male";
+		p.price = 1500;
+		p.size = "M";
+		p.setMaterial("Cotton");
+		p.print();
 
 	}
 

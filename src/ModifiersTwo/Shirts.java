@@ -6,8 +6,12 @@ public class Shirts extends Cloths{
 	String gender;
 	String size;
 	
+	public Shirts() {
+		System.out.println("Shirts constructor");
+	}
+	
 	public void print() {
 		System.out.println("Shirts Class\n" + "Price " + price + " Material " 
-	    + getMaterial() + " Gender " + gender + " Size " + size);
+	    + material + " Gender " + gender + " Size " + size);
 	}
 }
