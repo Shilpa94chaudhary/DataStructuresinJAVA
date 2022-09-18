@@ -7,7 +7,7 @@ public class CustomException3 {
 			throw new NegativeNumberException();
 		}
 		int fact = 1;
-		for(int i = 2; i<num ; i++) {
+		for(int i = 2; i<=num ; i++) {
 			fact *= i;
 		}
 		return fact;
@@ -42,7 +42,19 @@ public class CustomException3 {
 			
 		} catch (Exception e) {
 			System.out.println("Generic Exception thrown");
+		} finally {
+			System.out.println("Finally");
 		}
+		
+		/* 
+		 * finally is going to execute whether try throws an exception or not
+		 * Where we use finally, e.g. in networking if we establish a connection
+		 * and some exception happens, and system throw an exception
+		 * we have to remove the connection, 
+		 * as finally will execute in every condition so we can disconnect the connections
+		 * in finally
+		 */
+		
 		
 		System.out.println("Back to main");
 		

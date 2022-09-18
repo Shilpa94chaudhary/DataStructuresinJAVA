@@ -50,14 +50,11 @@ public class Polynomials {
 	}
 
 	public void multiply(Polynomials p1) {
-		int size;
 		if(this.highestDegree == 0 && p1.highestDegree == 0) {
 			this.polynomial[0] = this.polynomial[0]*p1.polynomial[0];
 		}else if(this.highestDegree == 0){
 			
 		}
-		
-		
 	}
 
 	public static Polynomials add(Polynomials p1, Polynomials p2) {

@@ -6,6 +6,7 @@ public class EmployeeInfo {
 
 	public static void main(String[] args) {
 		Employee e;
+		@SuppressWarnings("resource")
 		Scanner s = new Scanner(System.in);
 		System.out.println("Enter the choice(1/2): ");
 		int c = s.nextInt();
