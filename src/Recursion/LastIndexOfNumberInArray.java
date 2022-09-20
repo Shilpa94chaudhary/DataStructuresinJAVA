@@ -10,15 +10,19 @@ public class LastIndexOfNumberInArray {
 		if(input.length == 0) {
 				return -1;
 		}
-		if(input[input.length-1] == x) {
-			return input.length - 1 ;
-		}
 		int smallArr[] = new int [input.length - 1];
-		for(int i = 0 ; i < input.length - 1 ; i++) {
-			smallArr[i]= input[i];
+		for(int i = 1 ; i < input.length ; i++) {
+			smallArr[i-1]= input[i];
 		}
 		int index = lastIndex(smallArr,x);
-		return index;
+		if(index == -1) {
+			if(input[0] == x) {
+				return 0;
+			}else {
+				return -1;
+			}
+		}
+			return index+1;
     }
 	
 	public static int[] takeInput(){
