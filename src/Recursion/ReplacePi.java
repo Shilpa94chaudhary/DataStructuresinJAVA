@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class ReplacePi {
 
 	public static String replacePi(String str) {
-		if(str.length() == 1) {
+		if(str.length() <= 1) {
 			return str;
 		}
 		if(str.subSequence(0,2).equals("Pi") || str.subSequence(0,2).equals("pi") || str.subSequence(0,2).equals("PI")) {
