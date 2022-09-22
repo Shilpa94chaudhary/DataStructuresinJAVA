@@ -9,15 +9,6 @@ public class MergeSort {
 			return;
 		}
 		
-		if(arr.length == 2) {
-			if(arr[0]>arr[1]) {
-				int temp = arr[0];
-				arr[0] = arr[1];
-				arr[1] = temp;
-			}
-			return;
-		}
-		
 		int size = arr.length;
 		int mid = size/2;
 		
@@ -76,8 +67,8 @@ public class MergeSort {
 	}
 	
 	public static void main(String[] args) {
-		int[] input = takeInput();
-//		int[] input = {1,5,3,77,2,6,8,4,2};
+//		int[] input = takeInput();
+		int[] input = {1,5,3,77,2,6,8,4,2};
 		mergeSort(input);
 		printArray(input);
 	}
