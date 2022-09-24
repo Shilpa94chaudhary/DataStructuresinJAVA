@@ -5,6 +5,12 @@ import java.util.Scanner;
 public class Multiplication {
 	
 	static Scanner s = new Scanner(System.in);
+	
+	/* Given two integers M & N, calculate and return their 
+	 * multiplication using recursion. You can only use 
+	 * subtraction and addition for your calculation. 
+	 * No other operators are allowed.
+	 */
 
 	public static int multiplyTwoIntegers(int m, int n){
 		if(m == 0 || n == 0) {
