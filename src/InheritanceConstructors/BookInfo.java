@@ -19,7 +19,7 @@ public class BookInfo {
 		ShortStory ss = new ShortStory("The Interruption","The Perfect Murder");
 		
 		LongStory a = new LongStory("The Count of Monte Cristo");
-	    a.LongStory();
+	    a.longStory();
 	}
 
 }

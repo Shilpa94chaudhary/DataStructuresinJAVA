@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 public class ComplexNumberUse {
 
+	static Scanner s = new Scanner(System.in);
+	
 	public static void main(String[] args) {
-		
-		Scanner s = new Scanner(System.in);
 
 		int real1 = s.nextInt();
 		int imaginary1 = s.nextInt();

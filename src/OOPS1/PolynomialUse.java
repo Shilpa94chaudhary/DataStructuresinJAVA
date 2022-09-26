@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class PolynomialUse {
 
+	static Scanner s = new Scanner(System.in);
 	public static void main(String[] args) {
-		Scanner s = new Scanner(System.in);
 		
 		int n = s.nextInt();
 		int degree1[] = new int[n];
