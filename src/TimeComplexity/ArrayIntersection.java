@@ -3,20 +3,23 @@ package TimeComplexity;
 import java.util.Arrays;
 
 public class ArrayIntersection {
-
+	
 	public static void intersection(int[] arr1,int[] arr2) {
 
 		if(arr1.length==0 || arr2.length==0)
 			return ;
 		
 			Arrays.sort(arr1);
-			for(int i=0 ; i<arr1.length ; i++) {
-				for(int j=0 ; j<arr2.length; j++) {
-					if(arr1[i]==arr2[j]) {
-						System.out.print(arr1[i]+" ");
-                        arr2[j]=0;
-						break;
-					}
+			Arrays.sort(arr2);
+			int i=0, j=0;
+			while(i<arr1.length && j<arr2.length) {
+				if(arr1[i]<arr2[j]) {
+					i++;
+				}else if(arr1[i]>arr2[j]) {
+					j++;
+				}else {
+					System.out.print(arr1[i]+" ");
+					i++; j++;
 				}
 			}
 		System.out.println();
