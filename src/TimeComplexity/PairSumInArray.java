@@ -25,8 +25,11 @@ public class PairSumInArray {
 	}
 	
 	public static void main(String[] args) {
-		int[] arr= {1, 3, 6, 2, 5, 4, 3, 2, 4};
-		System.out.println(pairSum(arr,7));
+		int[] arr= {1, 3, 6, 2, 5, 5, 4, 3, 2, 5, 5, 5};
+		System.out.println(pairSum(arr,10));
+		
+		int[] arr2= {1, 3, 6, 2, 5, 5, 4, 3, 2, 4};
+		System.out.println(pairSum(arr2,10));
 		
 		int[] arr1= {1, 3, 6, 2, 5, 4, 3, 2, 4};
 		System.out.println(pairSum(arr1,12));
