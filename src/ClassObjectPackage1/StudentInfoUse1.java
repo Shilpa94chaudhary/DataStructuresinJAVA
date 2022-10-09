@@ -1,7 +1,5 @@
 package ClassObjectPackage1;
 
-import OOPS1.Student;
-
 public class StudentInfoUse1 {
 
 	public static void main(String[] args) {
