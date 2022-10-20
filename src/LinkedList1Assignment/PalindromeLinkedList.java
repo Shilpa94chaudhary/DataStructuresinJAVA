@@ -11,6 +11,8 @@ public class PalindromeLinkedList {
 		}
 		
 		LinkedListNode<Integer> revLL = reverseLL(head);
+		printLL(revLL);
+		printLL(head);
 		while(head != null) {
 			if(head.data.equals(revLL.data)) {
 				head = head.next;
@@ -24,16 +26,16 @@ public class PalindromeLinkedList {
 	
 	// Function to reverse Linked List
 	public static LinkedListNode<Integer> reverseLL(LinkedListNode<Integer> head){
-		LinkedListNode<Integer> prv = null;
-		LinkedListNode<Integer> next = null;
+
 		LinkedListNode<Integer> current = head;
+		LinkedListNode<Integer> newHead = null;
 		while(current != null) {
-			next = current.next;
-			current.next = prv;
-			prv = current;
-			current = next;
+			LinkedListNode<Integer> newNode = new LinkedListNode<Integer>(current.data);
+			newNode.next = newHead;
+			newHead=newNode;
+			current = current.next;
 		}
-		return head;
+		return newHead;
 	}
 	
 	// Create a Linked List
