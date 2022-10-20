@@ -1,33 +1,38 @@
-package LinkedList1;
+package LinkedList1Assignment;
 
 import java.util.Scanner;
 
-public class InsertNodeInLL {
-
-	// Insert into Linked List
-	public static LinkedListNode<Integer> insert(LinkedListNode<Integer> head, int pos, int data){
-		if(head == null && pos>0) {
-			return null;
+public class PalindromeLinkedList {
+	
+	// Check if linked list is Palindrome
+	public static boolean isPalindrome(LinkedListNode<Integer> head) {
+		if(head == null || head.next == null) {
+			return false;
 		}
 		
-		LinkedListNode<Integer> newNode = new LinkedListNode<Integer>(data);
-		if(pos == 0) {
-			newNode.next = head;
-			return newNode;
+		LinkedListNode<Integer> revLL = reverseLL(head);
+		while(head != null) {
+			if(head.data.equals(revLL.data)) {
+				head = head.next;
+				revLL = revLL.next;
+			}else {
+				return false;
+			}
 		}
-		LinkedListNode<Integer> temp = head;
-		LinkedListNode<Integer> previousNode=head;
-		for(int i=0; i<pos ; i++) {
-			if(temp==null){
-				// If index is greater than the size + 1, then return head, no change in LL
-                return head;
-            }
-			previousNode= temp;
-			temp = temp.next;
+		return true;
+	}
+	
+	// Function to reverse Linked List
+	public static LinkedListNode<Integer> reverseLL(LinkedListNode<Integer> head){
+		LinkedListNode<Integer> prv = null;
+		LinkedListNode<Integer> next = null;
+		LinkedListNode<Integer> current = head;
+		while(current != null) {
+			next = current.next;
+			current.next = prv;
+			prv = current;
+			current = next;
 		}
-		previousNode.next = newNode;
-		newNode.next = temp;
-		
 		return head;
 	}
 	
@@ -38,7 +43,7 @@ public class InsertNodeInLL {
 		int data = s.nextInt();
 		LinkedListNode<Integer> head = null;
 		LinkedListNode<Integer> tail = null;
-		
+
 		while(data != -1) {
 			LinkedListNode<Integer> currentNode = new LinkedListNode<Integer>(data);
 			if(head == null) {
@@ -48,12 +53,12 @@ public class InsertNodeInLL {
 				tail.next = currentNode;
 				tail = currentNode;
 			}
-			 data = s.nextInt();
+			data = s.nextInt();
 		}
-		
+
 		return head;
 	}
-	
+
 	// Print a Linked List
 	public static <T> void printLL(LinkedListNode<T> head) {
 		LinkedListNode<T>temp = head;
@@ -67,9 +72,7 @@ public class InsertNodeInLL {
 	public static void main(String[] args) {
 		LinkedListNode<Integer> head = takeInput();
 		printLL(head);
-		
-		head = insert(head, 0, 10);
-		printLL(head);
+		System.out.println(isPalindrome(head));
 
 	}
 
