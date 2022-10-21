@@ -11,7 +11,7 @@ public class PrintRecursive {
 		System.out.print(head.data + " ");
 		printRecursive(head.next);
 	}
-	
+
 	public static void main(String[] args) {
 		LinkedListNode<Integer> head = takeInput();
 		printRecursive(head);

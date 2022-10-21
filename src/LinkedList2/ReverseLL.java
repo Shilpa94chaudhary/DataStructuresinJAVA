@@ -2,39 +2,32 @@ package LinkedList2;
 
 import java.util.Scanner;
 
-public class InsertRecursive {
+public class ReverseLL {
 
-	// Insert in Linked List
-	public static LinkedListNode<Integer> insertR(LinkedListNode<Integer> head, int data, int pos){
-		if(head == null && pos>0) {
+
+	public static LinkedListNode<Integer> reverseLL(LinkedListNode<Integer> head) {
+		if(head == null) {
 			return head;
 		}
-
-		if(pos == 0) {
-			LinkedListNode<Integer> temp = new LinkedListNode<Integer>(data);
-			temp.next = head;
-			return temp;
+		if(head.next ==null) {
+			return head;
 		}
-
-		head.next = insertR(head.next, data, pos-1);
-
-		return head;
+		LinkedListNode<Integer> newHead = reverseLL(head.next);
+		LinkedListNode<Integer> tail = head;
+		while(tail.next != null) {
+			tail = tail.next;
+		}
+		tail.next = head;
+		head.next = null;
+		return newHead;
 	}
 
-	// Print elements of Linked List
-	public static void printRecursive(LinkedListNode<Integer> head) {
-		if(head == null) {
-			return;
-		}
-		System.out.print(head.data + " ");
-		printRecursive(head.next);
-	}
-
-	// Main function
 	public static void main(String[] args) {
+
 		LinkedListNode<Integer> head = takeInput();
-		head = insertR(head,20,2);
+		head = reverseLL(head);
 		printRecursive(head);
+
 	}
 
 	// Create a Linked List
@@ -60,4 +53,12 @@ public class InsertRecursive {
 		return head;
 	}
 
+	// Print elements of Linked List
+	public static void printRecursive(LinkedListNode<Integer> head) {
+		if(head == null) {
+			return;
+		}
+		System.out.print(head.data + " ");
+		printRecursive(head.next);
+	}
 }
