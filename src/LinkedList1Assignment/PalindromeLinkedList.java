@@ -73,7 +73,6 @@ public class PalindromeLinkedList {
 	
 	public static void main(String[] args) {
 		LinkedListNode<Integer> head = takeInput();
-		printLL(head);
 		System.out.println(isPalindrome(head));
 
 	}
