@@ -10,6 +10,7 @@ public class GenericMethods {
 	public static void main(String[] args) {
 		
 		// int is primitive data type, it will not work
+		@SuppressWarnings("unused")
 		int arr1[] = {1,2,3,4,5};
 //		printArray(arr1);
 		
