@@ -11,24 +11,19 @@ public class StackUsingArray {
 	}
 
 	public int size() {
-		if(topIndex == -1) {
-			System.out.println("Underflow");
-			return 0;
-		}
 		return topIndex+1;
 	}
 
-	public boolean isEmpty() {
+	public boolean isEmpty() throws StackUnderflowException {
 		if(topIndex == -1) {
-			return true;
+			throw new StackUnderflowException();
 		}
 		return false;
 	}
 
-	public void push(int element) {
+	public void push(int element) throws StackOverflowException {
 		if(topIndex == 9) {
-			System.out.println("Overflow");
-			return;
+			throw new StackOverflowException();
 		}
 		topIndex++;
 		data[topIndex] = element;
@@ -41,15 +36,18 @@ public class StackUsingArray {
 		return temp;
 	}
 
-	public int top() {
+	public int top() throws StackUnderflowException {
+		if(topIndex == -1) {
+			throw new StackUnderflowException();
+		}
 		return data[topIndex];
 	}
 
-	public void print() {
+	public void print() throws StackUnderflowException {
 		if(topIndex == -1) {
-			System.out.println("Underflow");
-			return;
+			throw new StackUnderflowException();
 		}
+		
 		for(int i=0 ; i<=topIndex ; i++) {
 			System.out.print(data[i] +" ");
 		}
