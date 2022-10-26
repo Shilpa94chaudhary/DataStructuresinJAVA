@@ -27,6 +27,7 @@ public class StackUsingArray {
 	public void push(int element) throws StackOverflowException {
 		if(topIndex == data.length - 1) {
 //			throw new StackOverflowException();
+//			Instead of throwing Stack Over Flow Exception, double the size of the array
 			doubleCapacity();
 		}
 		topIndex++;
