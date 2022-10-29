@@ -20,6 +20,12 @@ public class DynamicQueueUse {
 		System.out.println("Enqueue : 50");
 		dQueue.enqueue(50);
 		dQueue.print();
+		
+		for(int i = 0 ; i<5 ; i++) {
+			dQueue.enqueue((i+5)*5);
+			System.out.println("Size : " + dQueue.size());
+			dQueue.print();
+		}
 	}
 
 }
