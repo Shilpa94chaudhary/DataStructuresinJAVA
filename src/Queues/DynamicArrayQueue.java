@@ -1,21 +1,14 @@
 package Queues;
 
-public class QueueUsingArray {
+public class DynamicArrayQueue {
 
 	private int data[];
 	private int front; // index of the element at the front of the queue
 	private int rear; // index of the element at the rear of the queue
 	private int size;
 
-	QueueUsingArray(){
+	DynamicArrayQueue(){
 		data = new int[5];
-		front = -1;
-		rear = -1;
-		size = 0;
-	}
-
-	QueueUsingArray(int capacity){
-		data = new int[capacity];
 		front = -1;
 		rear = -1;
 		size = 0;
@@ -32,26 +25,6 @@ public class QueueUsingArray {
 	}
 
 	// Complexity O(1)
-	public void enqueue(int element) {
-		if(size == 0) {
-			front = 0;
-		}
-		if(size==data.length) {
-			System.out.println("Queue is full");
-			return;
-		}
-		//		rear++;
-		//		// if rear is full and we want to insert data at 0 index
-		//		if(rear == data.length) {
-		//			rear = 0;
-		//		}
-
-		rear = (rear+1) % data.length;
-		data[rear] = element;
-		size++;
-	}
-
-	// Complexity O(1)
 	public int front() {
 		if(size  == 0) {
 			System.out.println("Queue is empty");
@@ -59,6 +32,21 @@ public class QueueUsingArray {
 		}else {
 			return data[front];
 		}
+	}
+
+	// Complexity O(1)
+	public void enqueue(int element) {
+		if(size == 0) {
+			front = 0;
+		}
+
+		if(size == data.length) {
+			doubleCapacity();
+		}
+
+		rear = (rear+1) % data.length;
+		data[rear] = element;
+		size++;
 	}
 
 	// Complexity O(1)
@@ -80,8 +68,22 @@ public class QueueUsingArray {
 		}
 		return temp;
 	}
-	
-	// Complexity O(n)
+
+	private void doubleCapacity() {
+		int[] temp = data;
+		data = new int[temp.length * 2];
+		int index = 0;
+
+		for(int i = front ; i<temp.length ; i++) {
+			data[index++]=temp[i];
+		}
+		for(int i = 0; i < front; i++) {
+			data[index++]=temp[i];
+		}
+		front = 0;
+		rear = temp.length - 1;
+	}
+
 	public void print() {
 		if(size == 0) {
 			return;
@@ -94,7 +96,7 @@ public class QueueUsingArray {
 
 		if(rear<front) {
 			for(int i = front ; i<data.length ; i++) {
-				System.out.println(data[i]);
+				System.out.print(data[i]+" ");
 			}
 			for(int i = 0; i < front-1; i++) {
 				System.out.print(data[i]+" ");
@@ -102,5 +104,4 @@ public class QueueUsingArray {
 		}
 		System.out.println();
 	}
-
 }
