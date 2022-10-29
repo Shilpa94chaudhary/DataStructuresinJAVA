@@ -15,6 +15,7 @@ public class QueueUse {
 		System.out.println(queue.front());
 		System.out.println(queue.dequeue());
 		System.out.println(queue.front());
+		System.out.println(queue.size());
 	}
 
 }
