@@ -1,9 +1,9 @@
 package Queues;
 
-public class QueueUsingLL {
+public class QueueUsingLL<T> {
 
-	private Node<Integer> front;
-	private Node<Integer> rear;
+	private Node<T> front;
+	private Node<T> rear;
 	private int size;
 	
 	QueueUsingLL(){
@@ -12,8 +12,8 @@ public class QueueUsingLL {
 		size = 0;
 	}
 	
-	public void enqueue(int element) {
-		Node<Integer> temp = new Node<Integer>(element);
+	public void enqueue(T element) {
+		Node<T> temp = new Node<T>(element);
 		if(size == 0) {
 			front = temp;
 			rear = temp;
@@ -25,8 +25,11 @@ public class QueueUsingLL {
 		size++;
 	}
 	
-	public int dequeue() {
-		int temp = front.data;
+	public T dequeue() {
+		if(size == 0){
+            return null;
+        }
+		T temp = front.data;
 		front = front.next;
 		size--;
 		return temp;
@@ -41,7 +44,7 @@ public class QueueUsingLL {
 	}
 	
 	public void print() {
-		Node<Integer> temp = front;
+		Node<T> temp = front;
 		while(temp != null) {
 			System.out.print(temp.data + " ");
 			temp = temp.next;
@@ -49,7 +52,7 @@ public class QueueUsingLL {
 		System.out.println();
 	}
 
-	public int front() {
+	public T front() {
 		return front.data;
 	}
 }
