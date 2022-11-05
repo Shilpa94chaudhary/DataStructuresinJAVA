@@ -12,7 +12,7 @@ public class DiameterOfBinaryTree {
 		int leftHeight = height(root.left);
 		int rightHeight = height(root.right);
 		
-		return 2+leftHeight+rightHeight;
+		return 1+leftHeight+rightHeight;
 	}
 	
 	public static int height(BinaryTreeNode<Integer> root){
