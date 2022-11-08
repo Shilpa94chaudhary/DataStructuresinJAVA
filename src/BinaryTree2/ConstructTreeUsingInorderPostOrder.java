@@ -64,7 +64,7 @@ public class ConstructTreeUsingInorderPostOrder {
 		return root;
 	}
 
-	// Levelwise print binary tree
+	// Level wise print binary tree
 	public static void printLevelWise(BinaryTreeNode<Integer> root) {
 		if(root == null) {
 			return;
