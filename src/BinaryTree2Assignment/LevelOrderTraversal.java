@@ -4,36 +4,43 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class CreateInsertDuplicateNode {
+public class LevelOrderTraversal {
 
-	/*
-	 * Input Binary Tree
-	 * 			10
-	 * 		20		30
-	 * 	  40  50      60
-	 * 
-	 * Output Binary Tree
-	 * 				10
-	 * 			10		30
-	 * 	 	  20      30  60
-	 *     20    50		 60
-	 * 	  40   50
-	 * 	 40
-	 */
-	public static void insertDuplicateNode(BinaryTreeNode<Integer> root) {
-		
+	// Print Binary Tree Level wise
+	public static void printLevelWise(BinaryTreeNode<Integer> root) {
 		if(root == null) {
 			return;
 		}
+		Queue<BinaryTreeNode<Integer>> queue = new LinkedList<BinaryTreeNode<Integer>>();
+		Queue<BinaryTreeNode<Integer>> queueTemp = new LinkedList<BinaryTreeNode<Integer>>();
+
+		queue.add(root);
+		System.out.println(root.data + " ");
 		
-		BinaryTreeNode<Integer> newNode = new BinaryTreeNode<Integer>(root.data);
-		newNode.left = root.left;
-		root.left = newNode;
-		insertDuplicateNode(newNode.left);
-		insertDuplicateNode(root.right);
 		
+		while(!queue.isEmpty()) {
+			
+			while(!queue.isEmpty()) {
+				BinaryTreeNode<Integer> newNode = queue.poll();
+
+				if(newNode.left != null) {
+					System.out.print(newNode.left.data + " ");
+					queueTemp.add(newNode.left);
+				}
+
+				if(newNode.right != null) {
+					System.out.print(newNode.right.data + " ");
+					queueTemp.add(newNode.right);
+				}
+			}
+			System.out.println();
+			while(!queueTemp.isEmpty()) {
+				queue.add(queueTemp.poll());
+			}
+		
+		}
 	}
-	
+
 	// Take binary tree input
 	private static BinaryTreeNode<Integer> levelwiseInput() {
 
@@ -77,40 +84,10 @@ public class CreateInsertDuplicateNode {
 		return node;
 	}
 
-	// Print the binary tree
-	public static void printLevelWise(BinaryTreeNode<Integer> root) {
-		if(root == null) {
-			return;
-		}
-		Queue<BinaryTreeNode<Integer>> queue = new LinkedList<BinaryTreeNode<Integer>>();
-		
-		queue.add(root);
-		while(!queue.isEmpty()) {
-
-			BinaryTreeNode<Integer> printNode = queue.poll();
-			System.out.print(printNode.data + ":");
-			if(printNode.left == null) {
-				System.out.print("L:-1,");
-			}else {
-				System.out.print("L:" + printNode.left.data+ ",");
-				queue.add(printNode.left);
-			}
-
-			if(printNode.right == null) {
-				System.out.print("R:-1");
-			}else {
-				System.out.print("R:" + printNode.right.data);
-				queue.add(printNode.right);
-			}
-			System.out.println();
-		}
-	}
-
 	public static void main(String[] args) {
-
 		BinaryTreeNode<Integer> root = levelwiseInput();
-		insertDuplicateNode(root);
 		printLevelWise(root);
+
 	}
 
 }

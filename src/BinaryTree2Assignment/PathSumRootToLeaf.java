@@ -4,36 +4,35 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class CreateInsertDuplicateNode {
+public class PathSumRootToLeaf {
 
-	/*
-	 * Input Binary Tree
-	 * 			10
-	 * 		20		30
-	 * 	  40  50      60
-	 * 
-	 * Output Binary Tree
-	 * 				10
-	 * 			10		30
-	 * 	 	  20      30  60
-	 *     20    50		 60
-	 * 	  40   50
-	 * 	 40
-	 */
-	public static void insertDuplicateNode(BinaryTreeNode<Integer> root) {
-		
+
+	public static void rootToLeafPathsSumToK(BinaryTreeNode<Integer> root, int k) {
 		if(root == null) {
 			return;
 		}
-		
-		BinaryTreeNode<Integer> newNode = new BinaryTreeNode<Integer>(root.data);
-		newNode.left = root.left;
-		root.left = newNode;
-		insertDuplicateNode(newNode.left);
-		insertDuplicateNode(root.right);
-		
+		printRootToLeafPath(root,k,"");
 	}
-	
+
+	public static void printRootToLeafPath(BinaryTreeNode<Integer> root, int k, String s) {
+
+		if(root.left == null && root.right == null) {
+			if(root.data == k) {
+				System.out.println(s+root.data);
+			}
+		}else {
+			s = s + root.data + " ";
+			if(root.left != null ) {
+				printRootToLeafPath(root.left, k-root.data, s);
+			}
+			if(root.right != null ) {
+				printRootToLeafPath(root.right,k-root.data, s);
+			}
+		}
+
+	}
+
+
 	// Take binary tree input
 	private static BinaryTreeNode<Integer> levelwiseInput() {
 
@@ -73,44 +72,14 @@ public class CreateInsertDuplicateNode {
 				temp.right = right;
 			}
 		}
-
 		return node;
 	}
 
-	// Print the binary tree
-	public static void printLevelWise(BinaryTreeNode<Integer> root) {
-		if(root == null) {
-			return;
-		}
-		Queue<BinaryTreeNode<Integer>> queue = new LinkedList<BinaryTreeNode<Integer>>();
-		
-		queue.add(root);
-		while(!queue.isEmpty()) {
-
-			BinaryTreeNode<Integer> printNode = queue.poll();
-			System.out.print(printNode.data + ":");
-			if(printNode.left == null) {
-				System.out.print("L:-1,");
-			}else {
-				System.out.print("L:" + printNode.left.data+ ",");
-				queue.add(printNode.left);
-			}
-
-			if(printNode.right == null) {
-				System.out.print("R:-1");
-			}else {
-				System.out.print("R:" + printNode.right.data);
-				queue.add(printNode.right);
-			}
-			System.out.println();
-		}
-	}
-
 	public static void main(String[] args) {
-
 		BinaryTreeNode<Integer> root = levelwiseInput();
-		insertDuplicateNode(root);
-		printLevelWise(root);
+		int sum = 13;
+		rootToLeafPathsSumToK(root,sum);
+
 	}
 
 }
