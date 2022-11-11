@@ -2,21 +2,20 @@ package BinaryTree1;
 
 import java.util.Scanner;
 
-public class PostorderBinaryTree {
+public class InorderBinaryTree {
 
-
-	public static void postOrder(BinaryTreeNode<Integer> root) {
+	public static void inOrder(BinaryTreeNode<Integer> root) {
 
 		if(root == null) {
 			return;
 		}
 
-		postOrder(root.left);
+		inOrder(root.left);
 
-		postOrder(root.right);
-		
 		System.out.print(root.data+" ");
-
+		
+		inOrder(root.right);
+		
 	}
 
 	// Take input for binary tree
@@ -50,7 +49,7 @@ public class PostorderBinaryTree {
 	public static void main(String[] args) {
 
 		BinaryTreeNode<Integer> root = takeTreeInput(true, 0, false);
-		postOrder(root);
+		inOrder(root);
 
 	}
 

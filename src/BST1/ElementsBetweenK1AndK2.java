@@ -1,71 +1,29 @@
-package BinaryTree2Assignment;
+package BST1;
 
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class PrintNodesAtDistanceKfromNode {
+public class ElementsBetweenK1AndK2 {
 
-	/*
-	 * 				3
-	 * 			5		1
-	 * 		  6	  2	  0	  8
-	 * 			 7 4
-	 * 
-	 * node = 5
-	 * k = 2
-	 */
-	public static void nodesAtDistanceK(BinaryTreeNode<Integer> root, int node, int k) {
-		
-		@SuppressWarnings("unused")
-		int i = print(root, node, k);
-		
-	}
-	
-	public static int print(BinaryTreeNode<Integer> root, int node, int k) {
-		if(root == null) {
-			return -1;
-		}
-		
-		if(root.data == node) {
-			printAtDepthK(root,k);
-		}
-		
-		int lD = print(root.left, node, k);
-		int rD;
-		
-		if(lD == -1) {
-			rD = print(root.right, node, k);
-			if(rD == -1) {
-				return -1;
-			}else if(rD + 1 == k) {
-				System.out.println(root.data);
-				return k;
-			}
-		}else if(lD+1 == k) {
-			System.out.println(root.data);
-			return k;
-		}else {
-			printAtDepthK(root.right, k-lD+2);
-			return lD+1;
-		}
-		return 0;
-	}
-	
-	public static void printAtDepthK(BinaryTreeNode<Integer> root, int depth) {
+	public static void elementsInRangeK1K2(BinaryTreeNode<Integer> root,int k1,int k2){
+
 		if(root == null) {
 			return;
 		}
 		
-		if(depth == 0 && root != null) {
-			System.out.println(root.data);
-			return;
+		if(root.data > k1) {
+			elementsInRangeK1K2(root.left, k1, k2);
 		}
-		
-		printAtDepthK(root.left, depth-1);
-		printAtDepthK(root.right, depth-1);
-		
+		if(root.data >= k1 && root.data <= k2) {
+			System.out.print(root.data + " ");
+		}
+		if(root.data < k2 ) {
+			elementsInRangeK1K2(root.right, k1, k2);
+		}
+
 	}
+
 
 	// Take binary tree input
 	private static BinaryTreeNode<Integer> levelwiseInput() {
@@ -111,8 +69,10 @@ public class PrintNodesAtDistanceKfromNode {
 	}
 
 	public static void main(String[] args) {
+
 		BinaryTreeNode<Integer> root = levelwiseInput();
-		nodesAtDistanceK(root, 3, 2);
+		elementsInRangeK1K2(root,14,17);
+
 	}
 
 }

@@ -1,70 +1,38 @@
-package BinaryTree2Assignment;
+package BST1;
 
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class PrintNodesAtDistanceKfromNode {
+public class CheckIfBinaryTreeIsBST {
 
-	/*
-	 * 				3
-	 * 			5		1
-	 * 		  6	  2	  0	  8
-	 * 			 7 4
-	 * 
-	 * node = 5
-	 * k = 2
-	 */
-	public static void nodesAtDistanceK(BinaryTreeNode<Integer> root, int node, int k) {
+	public static boolean isBST(BinaryTreeNode<Integer> root) {
+
+		if(root==null)
+			return true;
+		int max=maximum(root.left);
+		int min=minimum(root.right);
 		
-		@SuppressWarnings("unused")
-		int i = print(root, node, k);
-		
+		if(root.data<=max || root.data>min)
+			return false;
+
+		boolean ans1=isBST(root.left);
+		boolean ans2=isBST(root.right);
+		return(ans1&& ans2);
+
 	}
 	
-	public static int print(BinaryTreeNode<Integer> root, int node, int k) {
-		if(root == null) {
-			return -1;
-		}
-		
-		if(root.data == node) {
-			printAtDepthK(root,k);
-		}
-		
-		int lD = print(root.left, node, k);
-		int rD;
-		
-		if(lD == -1) {
-			rD = print(root.right, node, k);
-			if(rD == -1) {
-				return -1;
-			}else if(rD + 1 == k) {
-				System.out.println(root.data);
-				return k;
-			}
-		}else if(lD+1 == k) {
-			System.out.println(root.data);
-			return k;
-		}else {
-			printAtDepthK(root.right, k-lD+2);
-			return lD+1;
-		}
-		return 0;
+	public static int maximum(BinaryTreeNode<Integer> root) {
+		if(root==null)
+			return Integer.MIN_VALUE;
+		return Math.max(root.data,Math.max(maximum(root.left),maximum(root.right)));
+
 	}
 	
-	public static void printAtDepthK(BinaryTreeNode<Integer> root, int depth) {
-		if(root == null) {
-			return;
-		}
-		
-		if(depth == 0 && root != null) {
-			System.out.println(root.data);
-			return;
-		}
-		
-		printAtDepthK(root.left, depth-1);
-		printAtDepthK(root.right, depth-1);
-		
+	public static int minimum(BinaryTreeNode<Integer> root) {
+		if(root==null)
+			return Integer.MAX_VALUE;
+		return Math.min(root.data,Math.min(minimum(root.left),minimum(root.right)));
 	}
 
 	// Take binary tree input
@@ -111,8 +79,10 @@ public class PrintNodesAtDistanceKfromNode {
 	}
 
 	public static void main(String[] args) {
+
 		BinaryTreeNode<Integer> root = levelwiseInput();
-		nodesAtDistanceK(root, 3, 2);
+		System.out.println(isBST(root));
+
 	}
 
 }
