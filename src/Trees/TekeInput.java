@@ -9,6 +9,7 @@ public class TekeInput {
 	public static TreeNode<Integer> takeInpurRecursive() {
 		// Take root node input
 		System.out.println("Enter a node: ");
+		@SuppressWarnings("resource")
 		Scanner s = new Scanner(System.in);
 		int num = s.nextInt();
 		TreeNode<Integer> root = new TreeNode<Integer>(num);
@@ -27,6 +28,7 @@ public class TekeInput {
 	public static TreeNode<Integer> takeInpurLevelwise() {
 		
 		System.out.println("Enter a root: ");
+		@SuppressWarnings("resource")
 		Scanner s = new Scanner(System.in);
 		int num = s.nextInt();
 		TreeNode<Integer> root = new TreeNode<Integer>(num);
