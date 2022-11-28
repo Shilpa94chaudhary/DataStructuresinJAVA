@@ -1,37 +1,19 @@
 package Trees;
 
-public class TreeTest {
+public class NumberOfNode {
 
-	// Print tree : Pre-Order
-	public static void printTree(TreeNode<Integer> root) {
-
-		if (root == null) {
-			// Special case not base case
-			return;
-		}
-		System.out.print(root.data + ":");
-		for (int i = 0; i < root.children.size(); i++) {
-			System.out.print(root.children.get(i).data + ",");
-		}
-		System.out.println();
-		for (int i = 0; i < root.children.size(); i++) {	
-			printTree(root.children.get(i));
-		}
-	}
-	
-	
 	// Number of nodes in tree
 	public static int numberOfNode(TreeNode<Integer> root) {
-		if(root == null) {
+		if (root == null) {
 			return 0;
 		}
-		
+
 		int count = 1;
-		
-		for(int i = 0 ; i < root.children.size() ; i++) {
+
+		for (int i = 0; i < root.children.size(); i++) {
 			count += numberOfNode(root.children.get(i));
 		}
-		
+
 		return count;
 	}
 
@@ -55,9 +37,8 @@ public class TreeTest {
 		node2.children.add(node5);
 		node5.children.add(node6);
 
-		printTree(tree);
-		
 		System.out.println(numberOfNode(tree));
+		
 	}
 
 }

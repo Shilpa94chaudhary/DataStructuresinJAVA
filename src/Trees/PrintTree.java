@@ -1,6 +1,6 @@
 package Trees;
 
-public class TreeTest {
+public class PrintTree {
 
 	// Print tree : Pre-Order
 	public static void printTree(TreeNode<Integer> root) {
@@ -19,22 +19,6 @@ public class TreeTest {
 		}
 	}
 	
-	
-	// Number of nodes in tree
-	public static int numberOfNode(TreeNode<Integer> root) {
-		if(root == null) {
-			return 0;
-		}
-		
-		int count = 1;
-		
-		for(int i = 0 ; i < root.children.size() ; i++) {
-			count += numberOfNode(root.children.get(i));
-		}
-		
-		return count;
-	}
-
 	public static void main(String[] args) {
 		
 		TreeNode<Integer> tree = new TreeNode<>(4);
@@ -56,8 +40,7 @@ public class TreeTest {
 		node5.children.add(node6);
 
 		printTree(tree);
-		
-		System.out.println(numberOfNode(tree));
+
 	}
 
 }
